@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: linear-gradient(225deg, rgba(25, 136, 247, 1) 0%, rgba(247, 25, 136, 1) 100%);
+        display: flex;
+        justify-content: center; 
+        align-items: center;   
+        height: 100vh;   */
+    }
+    #form-conatiner{
+        background-color: white;
+        padding: 25px;
+        text-align: center;       
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.349);
+    }
+    h2{
+        margin: 0px 0px 10px 0px;
+    }
+    input{
+        width: 240px;
+        margin: 10px 0px;
+        padding: 10px;
+    }
+    input[type='submit']{
+        width: 262px;
+        letter-spacing: 5px;
+        font-size: large;
+    }
+    .error{
+        color: red;
+        text-align: left;
+        margin: 0px;
+    }
+</style>
+<body>
+    
+</body>
+<div id="form-conatiner">
+    <h2>Login</h2>
+    <form onsubmit="return formValidate()">
+        <input type="text" placeholder="Username" id='username'><br>
+        <p id='userError' class="error"></p>
+        <input type="password" placeholder="Password" id='password'><br>
+        <p id='passError' class="error"></p>
+        <input type="submit" >
+    </form>
+
+<script>
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let flag = 1 ;
+
+    function formValidate()
+        {
+
+            if(username.value == "")
+            {
+                document.getElementById('userError').innerHTML='User name is Empty .'; 
+                flag=0; 
+            }
+            else if(username.value.length < 3)
+            {
+                document.getElementById('userError').innerHTML='Usename require atleast 3 Charactors.';
+                flag=0; 
+            }
+            else 
+            {
+                document.getElementById('userError').innerHTML='';
+                flag=1;
+            }
+        
+            if(password.value=="")
+            {
+                document.getElementById('passError').innerHTML='Password is Empty .'; 
+                flag=0;  
+            }
+            else 
+            {
+                document.getElementById('passError').innerHTML='';  
+                               
+            }
+            if(flag)
+            {
+                console.log('form Submitted')
+                return true;
+            }
+            else
+            {
+                console.log('form Not Submitted')
+                return false;
+            } 
+        }
+</script>
+</div>
+</html>
